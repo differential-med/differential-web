@@ -1,0 +1,27 @@
+.site-footer {
+  width: 100%;
+  min-height: 5rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+
+  padding: $size-4 $size-1;
+
+  background: #EAEAEA;
+  border-top: 1px solid #979797;
+
+  a {
+    color: $dark;
+  }
+}
+
+.site-footer--right {
+  margin-left: auto;
+}
+
+.site-footer--left,
+.site-footer--right {
+  display: flex;
+  flex-direction: column;
+}

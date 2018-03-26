@@ -1,4 +1,4 @@
 class SymptomDiagnosis < ApplicationRecord
-  has_one :diagnosis
-  has_one :symptom
+  belongs_to :diagnosis
+  belongs_to :symptom
 end

@@ -1,5 +1,10 @@
 # http://guides.rubyonrails.org/routing.html
-#
+
 Rails.application.routes.draw do
-  get "differential-of-:id" => "symptoms#show"
+  get "about" => "main#about"
+
+  get "differential-of-:id" => "symptoms#show", as: :symptom
+  get "random-symptom" => "symptoms#random"
+
+  root "main#home"
 end

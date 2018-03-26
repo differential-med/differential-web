@@ -1,0 +1,15 @@
+a,
+.button {
+  .inline-icon {
+    display: inline-flex;
+    align-self: center;
+    position: relative;
+    height: 1em;
+    width: 1em;
+  }
+
+  .inline-icon svg {
+    height:1em;
+    width:1em;
+  }
+}

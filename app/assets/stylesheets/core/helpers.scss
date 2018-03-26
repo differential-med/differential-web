@@ -1,0 +1,7 @@
+@function ms($value) {
+  @return modular-scale($value, 1rem);
+}
+
+@function spacing($value) {
+  @return ms($value);
+}

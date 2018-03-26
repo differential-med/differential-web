@@ -1,0 +1,60 @@
+<div class="symptoms-show">
+
+  <section class="section">
+    <div class="symptoms-show--question">
+      What is the differential diagnosis of
+      <div class="symptoms-show--question-line2">
+        <span class="symptoms-show--question-name">
+          <%= @symptom.name %>
+        </span>
+        ?
+      </div>
+    </div>
+
+    <div class="symptoms-show--hint">
+      you should be thinking of <span class="count"><%= @symptom.diagnoses.count %></span> potential <%= 'diagnosis'.pluralize(@symptom.diagnoses.count) %>...
+    </div>
+
+    <button class="symptoms-show--see-anwswers button is-primary is-medium">
+      See Answers ...
+    </button>
+  </section>
+
+  <section class="section symptoms-show--answers">
+    <% if @symptom.summary.present? %>
+      <section class="symptoms-show--summary box">
+        <%= @symptom.summary %>
+      </section>
+    <% end %>
+
+    <% @symptom.diagnoses.each do |diagnosis| %>
+      <section class="symptoms-show--diagnosis box">
+        <div class="symptoms-show--diagnosis-header">
+          <div class="symptoms-show--diagnosis-name">
+            <%= diagnosis.name.titleize %>
+          </div>
+          <% if diagnosis.summary.present? %>
+            <button class="symptoms-show--diagnosis-see-more button is-text">
+              see why
+            </button>
+          <% end %>
+        </div>
+
+        <% if diagnosis.summary.present? %>
+          <div class="symptoms-show--diagnosis-summary">
+            <%= render_markdown @symptom.summary %>
+          </div>
+        <% end %>
+      </section>
+    <% end %>
+
+    <section class="symptoms-show--end section">
+      <div class="symptoms-show--continue">
+        continue to a
+        <a href="<%= random_symptom_path %>" class="symptoms-show--continue-random button is-primary is-outlined">
+          random symptom &rarr;
+        </a>
+      </div>
+    </section>
+  </section>
+</div>
